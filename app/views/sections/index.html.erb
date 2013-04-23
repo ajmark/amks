@@ -1,0 +1,12 @@
+<div class="row">
+	<div class="span8">
+		  <h3>Current Sections</h3>
+		  <%= render :partial => "current_sections" %>
+	</div>
+	<div class="span4">
+		<h3>Choose Tournament</h3>
+		<%# render :partial => "select_tournament" %>
+	</div>
+</div>
+
+<%= link_to raw("<i class='icon-plus icon-white'></i> Add a New Section"), new_section_path, :class => 'btn btn-primary', :id => 'Create Section' %>

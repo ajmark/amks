@@ -1,0 +1,14 @@
+<%= simple_form_for @registration, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend>Register a student for this section</legend>
+		
+		<%= f.input :student_id, :collection => eligible_unregistered_students_for_section(@section) %>
+		<%= f.input :section_id, :as => :hidden, :input_html => { :value => @section.id } %>
+		<%# f.input :fee_paid %>
+
+    <div class="form-actions-min">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', section_path(@section), :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

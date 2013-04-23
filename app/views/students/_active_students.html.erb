@@ -1,0 +1,32 @@
+<% if @students.empty? %>
+  &nbsp;&nbsp;<em>None at this time</em>
+<% else %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+  			<th>Age</th>
+  			<th>Rank</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @students.each do |student| %>
+        <tr>
+          <td><%= link_to student.name, student_path(student) %></td>
+          <td><%= student.date_of_birth.nil? ? "---" : student.age  %></td>
+          <td><%= rank_name(student.rank)  %></td>
+  				<td>
+            <%= link_to raw("<i class='icon-pencil'></i> Edit"), edit_student_path(student), :class => 'btn btn-mini' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="digg_pagination">
+    <div clas="page_info">
+      <%= page_entries_info @students %>
+    </div>
+    <%= will_paginate @students, :container => true, :previous_label => "Previous", :next_label => "Next", :inner_window => 2 %>
+  </div>
+<% end %>

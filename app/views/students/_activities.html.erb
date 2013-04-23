@@ -1,0 +1,19 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Event</th>
+			<th class="centered">Place</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @registrations.each do |registration| %>
+      <tr>
+        <td><%= link_to registration.event.name, section_path(registration.section.id) %></td>
+				<td class="centered">
+				  --
+				</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @registrations, :previous_label => "Previous", :next_label => "Next" %>

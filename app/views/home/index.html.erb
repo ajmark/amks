@@ -1,0 +1,5 @@
+<%# if current_user && current_user.is_admin? %>
+  <%# render :partial => "admin_home" %>
+<%# else %>
+  <%= render :partial => "general_home" %>
+<%# end %>

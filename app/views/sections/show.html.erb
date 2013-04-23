@@ -1,0 +1,20 @@
+<div class="row">
+	<div class="span7">
+		<h3>Section Details</h3>
+		<%= render :partial => "section_details" %>
+		<p class="supertiny">&nbsp;</p>
+		<%# render :partial => "register_student_for_section" %>
+	</div>
+	<div class="span5">
+	  <h3>Students Registered</h3>
+		<%= render :partial => "section_students" %>
+		<!-- <br /> -->
+		<%= render :partial => "quick_register_student_for_section" %>
+	</div>
+</div>
+
+<div class="form-actions">
+  <%= link_to raw("<i class='icon-list'></i> Display All Sections"), sections_path, :class => 'btn'  %>&nbsp;&nbsp;
+  <%= link_to raw("<i class='icon-pencil'></i> Edit Section"), edit_section_path(@section), :class => 'btn' %>&nbsp;&nbsp;
+  <%= link_to raw("<i class='icon-remove icon-white'></i> Delete Section"), section_path(@section), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

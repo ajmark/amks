@@ -1,0 +1,74 @@
+#footer {
+	margin-top: 15px;
+  padding-top: 10px;
+	background-color:#E6E6E6;
+	text-align: center;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+#copy {
+	font-size: 85%;
+	text-align: center;
+}
+
+.supertiny {
+	font-size: 5px;
+}
+
+.well li {
+	font-size: 130%;
+	line-height: 1.5;
+}
+
+select.date { width: 90px; }
+select.time { width: 90px; }
+
+td.centered {
+	text-align: center;
+}
+
+.form-actions {
+	background-color: #FFF;
+}
+
+.form-actions-min {
+	background-color: #FFF;
+	border: none;
+	padding: 10px 10px 10px 180px;
+	/*padding-left: 180px;*/
+}
+
+.pagination ul > li > a, .pagination ul > li > span {
+	border-left-width: 1px;
+}
+
+
+/*** TEMP FIX ON BOOTSTRAP ICONS ***/
+.icon-th-list {
+	background-image: url("./img/glyphicons-halflings.png");
+}
+.icon-file {
+	background-image: url("./img/glyphicons-halflings.png");
+}
+.icon-list {
+	background-image: url("./img/glyphicons-halflings.png");
+}
+.icon-pencil {
+	background-image: url("./img/glyphicons-halflings.png");
+}
+.icon-remove {
+	background-image: url("./img/glyphicons-halflings.png");
+}
+.icon-plus {
+	background-image: url("./img/glyphicons-halflings.png");
+}
+.icon-arrow-left {
+	background-image: url("./img/glyphicons-halflings.png");
+}
+
+.icon-white {
+	background-image: url("./img/glyphicons-halflings-white.png");
+}
+
+

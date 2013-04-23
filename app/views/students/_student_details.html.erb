@@ -1,0 +1,25 @@
+<p>
+	<h4>
+	  Name: <%= @student.name %>
+	</h4>
+</p>
+
+<p>
+  <b>Rank:</b> <%= rank_name(@student.rank) %>
+</p>
+
+<p>
+  <b>Date of Birth:</b> <%= @student.date_of_birth.strftime("%m/%d/%y") %>
+</p>
+
+<p>
+  <b>Phone:</b> <%= number_to_phone @student.phone unless @student.phone.nil? %>
+</p>
+
+<p>
+  <b>Waiver Signed:</b> <%= @student.waiver_signed ? "Yes" : "No" %>
+</p>
+
+<p>
+  <b>Active:</b> <%= @student.active ? "Yes" : "No" %>
+</p>

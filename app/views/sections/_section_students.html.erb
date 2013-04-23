@@ -1,0 +1,26 @@
+<% if @section_students.empty? %>
+  <p>&nbsp;&nbsp;<em>None at this time</em></p>
+  <p>&nbsp;</p>
+  
+<% else %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+  			<th>Rank</th>
+  			<th>Age</th>
+  			<th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @section_students.each do |student| %>
+        <tr>
+          <td><%= link_to student.name, student_path(student) %></td>
+          <td><%= rank_name(student.rank)  %></td>
+          <td class="centered"><%= student.age %></td>
+          <td><%= link_to raw("<i class='icon-remove'></i>"), registration_path(Registration.for_student(student.id).for_section(@section.id).first), :method => 'delete', :confirm => 'Are you sure?' %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

@@ -1,0 +1,37 @@
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Event</th>
+  			<th>Rank(s)</th>
+  			<th>Age(s)</th>
+  			<th class="centered">Registrants</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @sections.each do |section| %>
+        <tr>
+          <td><%= link_to section.event.name, section_path(section) %></td>
+          <td>
+            <%= rank_range_for(section) %>
+          </td>
+          <td>
+            <%= age_range_for(section) %>
+          </td>
+          
+          <td class="centered"><%= section.registrations.size %></td>
+  				<td>
+  					<%= link_to raw("<i class='icon-file'></i> Details"), section_path(section), :class => 'btn btn-mini' %>
+            <%= link_to raw("<i class='icon-pencil'></i> Edit"), edit_section_path(section), :class => 'btn btn-mini' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="digg_pagination">
+    <div clas="page_info">
+      <%= page_entries_info @sections %>
+    </div>
+    <%= will_paginate @sections, :container => true, :previous_label => "Previous", :next_label => "Next", :inner_window => 2 %>
+  </div>

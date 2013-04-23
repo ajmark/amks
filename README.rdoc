@@ -1,0 +1,9 @@
+A&M Karate School App :: 67-272
+===
+This is a basic Rails app that was built as a solution to phase 4 (of 5) of the course project in the spring of 2013.  This phase does give you some basic views, but moving forward a student should restyle the app so that the overall look and feel is different.  (Some students have nice designs -- ones far better than this very generic design -- and I don't want those students abandoning better design for this very generic one.)
+
+The class is Application Design & Development and is for Information Systems students at Carnegie Mellon University (campuses both in Pittsburgh and Doha).  We have posted this code on github.com in a public directory so that (a) it is readily accessible to students in both PA and Qatar and (b) that students will get a little familiarity with github.com.
+
+This project does require the use of several gems to work properly.  Check the Gemfile to see which gems are used.  In order to make sure everyone is on the same page moving forward, specific versions of gems have been specified in the Gemfile, so run bundle to make sure you are using the correct versions.
+
+There is a populate script that is available by running `rake db:populate` on the command line.  This will create several hundred students across 9 different age ranges and in each rank.  Along with three sections, breaking, sparring and forms, this will give students a realistic set of data in their development database to test their application in the browser.

@@ -1,0 +1,28 @@
+<% if @inactive_students.empty? %>
+  &nbsp;&nbsp;<em>None at this time</em>
+<% else %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+  			<th>Rank</th>
+  			<th>Last Tournament</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @inactive_students.each do |student| %>
+        <tr>
+          <td><%= link_to student.name, student_path(student) %></td>
+          <td><%= rank_name(student.rank)  %></td>
+          <td><%= link_to student.tournaments.chronological.first.name, tournament_path(student.tournaments.chronological.first) unless student.tournaments.empty? %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="digg_pagination">
+    <div clas="page_info">
+      <%= page_entries_info @inactive_students %>
+    </div>
+    <%= will_paginate @inactive_students, :container => true, :previous_label => "Previous", :next_label => "Next" %>
+  </div>
+<% end %>

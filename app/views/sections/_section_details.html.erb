@@ -1,0 +1,17 @@
+<p>
+	<b>Event:</b> <%= @section.event.name %>
+</p>
+
+<p>
+  <b>Rank(s):</b> 
+  <%= rank_range_for(@section) %>
+</p>
+
+<p>
+  <b>Age(s):</b> 
+  <%= age_range_for(@section) %>
+</p>
+
+<p>
+  <b>Active:</b> <%= @section.active ? "Yes" : "No" %>
+</p>

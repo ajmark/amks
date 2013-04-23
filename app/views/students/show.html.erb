@@ -1,0 +1,22 @@
+<div class="row">
+	<div class="span8">
+		<h3>Student Details</h3>
+		<%= render :partial => "student_details" %>
+	</div>
+	<div class="span4">
+	  <h3>Tournament Activity</h3>
+		<%= render :partial => "activities" unless @registrations.empty? %>
+	  
+	  <!-- <p class="supertiny">&nbsp;</p> -->
+		<!-- <h3>Dojo History</h3> -->
+		<%# render :partial => "dojo_history" unless @dojo_history.empty? %>
+		<%# link_to(raw("<i class='icon-plus icon-white'></i> New Dojo"), new_dojo_student_path(:id => @student.id, :from => 'student'), :class => 'btn btn-primary') %>
+		
+	</div>
+</div>
+
+<div class="form-actions">
+  <%= link_to raw("<i class='icon-list'></i> Display All Students"), students_path, :class => 'btn'  %>&nbsp;&nbsp;
+  <%= link_to raw("<i class='icon-pencil'></i> Edit #{@student.proper_name}"), edit_student_path(@student), :class => 'btn' %>&nbsp;&nbsp;
+  <%= link_to raw("<i class='icon-remove icon-white'></i> Delete #{@student.proper_name}"), student_path(@student), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

@@ -1,0 +1,14 @@
+<%= simple_form_for @registration, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Registration</legend>
+		
+		<%= f.input :section_id, :collection => Section.active.alphabetical.all %>
+		<%= f.input :student_id, :collection => Student.active.alphabetical.all %>
+		<%= f.input :source, :as => :hidden, :input_html => { :value => "new_page" } %>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', sections_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

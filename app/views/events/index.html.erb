@@ -1,0 +1,33 @@
+<div class="row">
+	<div class="span7">
+	  <% if @events.nil? %>
+	    <p><em>No events currently in the system.</em></p>
+	  <% else %>
+		  <h3>List of Events</h3>
+		  <table class="table table-striped">
+        <thead>
+          <tr>
+            <th width="250">Name</th>
+      			<th class="centered">Active</th>
+            <th class="centered">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @events.each do |event| %>
+            <tr>
+              <td><%= link_to event.name, event_path(event) %></td>
+              <td class="centered"><%= event.active ? "Yes" : "No" %></td>
+      				<td class="centered">
+                <%= link_to raw("<i class='icon-pencil'></i> Edit"), edit_event_path(event), :class => 'btn btn-mini' %>
+                &nbsp;
+                <%= link_to raw("<i class='icon-remove icon-white'></i> Destroy"), event_path(event), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+		<% end %>
+	</div>
+</div>
+
+<%= link_to raw("<i class='icon-plus icon-white'></i> Add a New Event"), new_event_path, :class => 'btn btn-primary', :id => 'Create Section' %>

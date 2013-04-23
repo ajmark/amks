@@ -1,0 +1,4 @@
+<%= simple_form_for @registration, :html => { :class => 'form' } do |f| %>	
+		<%= f.input :student_id, :label => 'Register a student for this section:', :collection => eligible_unregistered_students_for_section(@section) %>
+		<%= f.input :section_id, :as => :hidden, :input_html => { :value => @section.id } %>
+<% end %>
