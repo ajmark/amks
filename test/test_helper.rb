@@ -125,9 +125,9 @@ class ActiveSupport::TestCase
   
   def create_dojo_context
     @cmu = FactoryGirl.create(:dojo)
-    # sleep 1
+    sleep 1
     @north = FactoryGirl.create(:dojo, name: "North Side", street: "250 East Ohio St", city:"Pittsburgh", zip: "15212")
-    # sleep 1
+    sleep 1
     @sqhill = FactoryGirl.create(:dojo, name: "Squirrel Hill", street: "5738 Forbes Avenue", city:"Pittsburgh", zip: "15217", active: false)
   end
   

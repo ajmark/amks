@@ -2,7 +2,7 @@ class Dojo < ActiveRecord::Base
   attr_accessible :active, :city, :name, :state, :street, :zip, :latitude, :longitude
   
   # Callbacks
-  # before_validation :get_dojo_coordinates
+  before_validation :get_dojo_coordinates
   
   # Relationships
   has_many :dojo_students
