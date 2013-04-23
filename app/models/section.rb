@@ -1,5 +1,5 @@
 class Section < ActiveRecord::Base
-  attr_accessible :active, :event_id, :min_age, :min_rank, :max_age, :max_rank, :tournament_id
+  attr_accessible :active, :event_id, :min_age, :min_rank, :max_age, :max_rank, :tournament_id, :location, :round_time
   
   # Relationships
   belongs_to :event
