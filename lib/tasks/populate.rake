@@ -55,6 +55,19 @@ namespace :db do
           stu.active = true
           stu.save!
           eligible_students_ids << stu.id
+          if stu.age > 15
+            u = User.new
+            u.student_id = stu.id
+            u.email = "#{stu.first_name.downcase}.#{stu.last_name.downcase}@example.com"
+            u.password = "secret"
+            u.password_confirmation = "secret"
+            if stu.rank > 11
+              u.role = "admin"
+            else
+              u.role = "member"
+            end
+            u.save!
+          end
         end
         
         # Step 3b: add a section for each event for this age/rank range
