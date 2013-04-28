@@ -93,6 +93,7 @@ module NavigationHelpers
 
     when /edit the North Side dojo/
       edit_dojo_path(@north)
+          
             
     #### SEMI-STATIC PAGES
     when /the About Us page/
