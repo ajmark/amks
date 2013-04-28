@@ -5,6 +5,7 @@ class TournamentsController < ApplicationController
 
   def show
   	@tournament = Tournament.find(params[:id])
+    @tournament_sections = @tournament.sections.alphabetical.paginate(:page => params[:page]).per_page(8) 
   end
 
   def new
