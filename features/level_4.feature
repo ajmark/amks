@@ -89,6 +89,7 @@ Feature: Manage sections
   # CREATE METHODS
   Scenario: Creating a new section is successful
     When I go to the new section page
+    And I select "Fall Classic" from "section_tournament_id"
     And I select "Forms" from "section_event_id"
     And I fill in "section_min_age" with "35"
     And I select "Third Gup" from "section_min_rank"
@@ -101,6 +102,7 @@ Feature: Manage sections
     
   Scenario: Creating a new section is fails when missing event
     When I go to the new section page
+    And I select "Fall Classic" from "section_tournament_id"
     And I fill in "section_min_age" with "40"
     And I select "Third Gup" from "section_min_rank"
     And I select "First Gup" from "section_max_rank"

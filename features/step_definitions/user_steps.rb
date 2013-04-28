@@ -85,11 +85,13 @@ end
 
 Given /^an initial setup$/ do
   create_events_and_tournaments_context
+  create_students_and_dojos_context
   create_white_yellow_belt_context
 end
 
 Given /^red and white belt students$/ do
   create_events_and_tournaments_context
+  create_students_and_dojos_context
   create_white_yellow_belt_context
   create_red_belt_context
 end

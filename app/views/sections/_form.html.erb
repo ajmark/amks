@@ -2,6 +2,7 @@
   <fieldset>
     <legend><%= controller.action_name.capitalize %> Section</legend>
 		
+		<%= f.input :tournament_id, :collection => Tournament.active.alphabetical.all %>
 		<%= f.input :event_id, :collection => Event.active.alphabetical.all %>
 		<%= f.input :min_age, :as => :string %>
 		<%= f.input :max_age, :as => :string %>

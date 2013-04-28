@@ -1,14 +1,14 @@
 class StudentsController < ApplicationController
 
   def index
-    @students = Student.active.alphabetical.paginate(:page => params[:page]).per_page(8)
-    @inactive_students = Student.inactive.alphabetical.paginate(:page => params[:page]).per_page(8)
+    @students = Student.active.alphabetical.paginate(:page => params[:page]).per_page(10)
+    @inactive_students = Student.inactive.alphabetical.paginate(:page => params[:page]).per_page(10)
   end
 
   def show
     @student = Student.find(params[:id])
     # @dojo_history = @student.dojo_students.chronological.all
-    @registrations = @student.registrations.by_event_name.paginate(:page => params[:page]).per_page(8)
+    @registrations = @student.registrations.by_event_name.paginate(:page => params[:page]).per_page(10)
   end
   
   def new
