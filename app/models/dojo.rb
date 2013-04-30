@@ -25,7 +25,7 @@ class Dojo < ActiveRecord::Base
   
   # Other methods
   def current_students
-    self.students.select{|s| s.current_dojo == self}
+    self.students.alphabetical.select{|s| s.current_dojo == self}.uniq
   end
   
   # Callbacks

@@ -46,6 +46,20 @@ module NavigationHelpers
       
     when /edit Ted Gruberman page/
       edit_student_path(@ted)
+      
+    #### TOURNAMENTS
+    when /the tournaments page/
+      tournaments_path
+
+    when /the details page for fall classic/
+      tournament_path(@fall)
+
+    when /the new tournament page/
+      new_tournament_path
+
+    when /edit fall classic page/
+      edit_tournament_path(@fall)
+
 
     #### SECTIONS
     when /the sections page/
@@ -65,6 +79,21 @@ module NavigationHelpers
 
     when /edit red belt breaking page/
       edit_section_path(@r_belt_breaking)
+      
+      
+    #### DOJOS
+    when /the dojos page/
+      dojos_path
+
+    when /the details page for the North Side dojo/
+      dojo_path(@north)
+
+    when /the new dojo page/
+      new_dojo_path
+
+    when /edit the North Side dojo/
+      edit_dojo_path(@north)
+          
             
     #### SEMI-STATIC PAGES
     when /the About Us page/
