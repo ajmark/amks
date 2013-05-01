@@ -1,0 +1,34 @@
+<% if @dojos.empty? %>
+  &nbsp;&nbsp;<em>None at this time</em>
+<% else %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+  			<th>City</th>
+        <th class="centered">Members</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @dojos.each do |dojo| %>
+        <tr>
+          <td><%= link_to dojo.name, dojo_path(dojo) %></td>
+          <td><%= dojo.city + ", " + dojo.state %></td>
+          <td class="centered"><%= dojo.students.size %></td>
+  				<td>
+            <%= link_to raw("<i class='icon-file'></i> Details"), dojo_path(dojo), :class => 'btn btn-mini' %>
+            <%= link_to raw("<i class='icon-pencil'></i> Edit"), edit_dojo_path(dojo), :class => 'btn btn-mini' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="digg_pagination">
+    <div clas="page_info">
+      <%= page_entries_info @dojos %>
+    </div>
+    <br>
+    <%= will_paginate @dojos, :container => true, :previous_label => "Previous", :next_label => "Next", :inner_window => 2 %>
+  </div>
+<% end %>
