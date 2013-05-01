@@ -8,6 +8,14 @@ Karate67272::Application.routes.draw do
 
   get "users/edit"
 
+  get "dojo_students/index"
+
+  get "dojo_students/show"
+
+  get "dojo_students/new"
+
+  get "dojo_students/edit"
+
   get "dojos/index"
 
   get "dojos/show"
@@ -31,6 +39,7 @@ Karate67272::Application.routes.draw do
   resources :students
   resources :tournaments
   resources :dojos
+  resources :dojo_students
   
   # Semi-static page routes
   match 'home' => 'home#index', :as => :home

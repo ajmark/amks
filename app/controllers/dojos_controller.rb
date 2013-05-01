@@ -5,7 +5,8 @@ class DojosController < ApplicationController
 
   def show
   	@dojo = Dojo.find(params[:id])
-    @dojo_students = @dojo.dojo_students.current.paginate(:page => params[:page]).per_page(10)
+    @dojo_students = @dojo.dojo_students.current.includes(:student).order("students.last_name").paginate(:page => params[:page]).per_page(10)
+    @dojo_student = DojoStudent.new
   end 
 
   def new
