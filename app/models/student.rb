@@ -10,7 +10,7 @@ class Student < ActiveRecord::Base
   before_save :reformat_phone
   before_destroy :check_if_destroyable
   after_rollback :deactivate_student_logic
-  
+
   # Relationships
   has_many :registrations
   has_many :sections, :through => :registrations

@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/ryanb/nested_form.git
+  revision: a25eebe8205e4e63899873b716535def6c1f5a9d
+  specs:
+    nested_form (0.3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -226,6 +232,7 @@ DEPENDENCIES
   launchy (= 2.2.0)
   meta_request (= 0.2.2)
   mocha (= 0.10.5)
+  nested_form!
   nokogiri (= 1.5.6)
   populator3 (= 0.2.7)
   quiet_assets (= 1.0.2)
