@@ -1,5 +1,13 @@
 Karate67272::Application.routes.draw do
 
+  get "users/index"
+
+  get "users/show"
+
+  get "users/new"
+
+  get "users/edit"
+
   get "dojos/index"
 
   get "dojos/show"

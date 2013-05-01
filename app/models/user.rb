@@ -36,14 +36,14 @@ class User < ActiveRecord::Base
     find_by_email(email).try(:authenticate, password)
   end
   
-  private
-  def student_is_active_in_system
-    # get an array of all active students in the system
-    active_students_ids = Student.active.all.map{|s| s.id}
-    # add error unless the student id of the registration is in the array of active students
-    unless active_students_ids.include?(self.student_id)
-      errors.add(:student, "is not an active student in the system")
-    end
-  end
+  # private
+  # def student_is_active_in_system
+  #   # get an array of all active students in the system
+  #   active_students_ids = Student.active.all.map{|s| s.id}
+  #   # add error unless the student id of the registration is in the array of active students
+  #   unless active_students_ids.include?(self.student_id)
+  #     errors.add(:student, "is not an active student in the system")
+  #   end
+  # end
   
 end
