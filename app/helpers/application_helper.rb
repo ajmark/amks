@@ -65,5 +65,12 @@ module ApplicationHelper
       "#{rank_name section.min_rank} - #{rank_name section.max_rank}"
     end
   end
-  
+
+  def non_members_of(dojo)
+    all_students = Student.all 
+    members = dojo.current_students 
+    non_members = all_students - members 
+    return non_members.sort_by(&:last_name)
+  end 
+
 end
