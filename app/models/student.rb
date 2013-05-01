@@ -11,6 +11,9 @@ class Student < ActiveRecord::Base
   before_destroy :check_if_destroyable
   after_rollback :deactivate_student_logic
 
+  #Nested Form
+  accepts_nested_attributes_for :user, :reject_if => lambda { |user| user[:email].blank? }
+
   # Relationships
   has_many :registrations
   has_many :sections, :through => :registrations
