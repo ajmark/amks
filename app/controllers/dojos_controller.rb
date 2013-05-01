@@ -5,7 +5,8 @@ class DojosController < ApplicationController
 
   def show
   	@dojo = Dojo.find(params[:id])
-  end
+    @dojo_students = @dojo.dojo_students.current.paginate(:page => params[:page]).per_page(10)
+  end 
 
   def new
   	@dojo = Dojo.new
@@ -19,7 +20,7 @@ class DojosController < ApplicationController
     @dojo = Dojo.new(params[:dojo])
     if @dojo.save
       # if saved to database
-      flash[:notice] = "Successfully created #{@dojo.name}."
+      flash[:notice] = "Successfully created #{@dojo.name} dojo"
       redirect_to @dojo # go to show event page
     else
       # return to the 'new' form
@@ -30,7 +31,7 @@ class DojosController < ApplicationController
   def update
     @dojo = Dojo.find(params[:id])
     if @dojo.update_attributes(params[:dojo])
-      flash[:notice] = "Successfully updated #{@dojo.name}."
+      flash[:notice] = "Successfully updated #{@dojo.name} dojo"
       redirect_to @dojo
     else
       render :action => 'edit'

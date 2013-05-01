@@ -1,6 +1,6 @@
 <%= simple_form_for @tournament, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
-    <legend><%= controller.action_name.capitalize %> Event</legend>
+    <legend><%= controller.action_name.capitalize %> Tournament</legend>
 		
 		<%= f.input :name %>
     <%= f.input :date, :as => :date, :order => [:month, :day, :year] %>
@@ -10,7 +10,7 @@
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to 'Cancel', events_path, :class => 'btn' %>
+      <%= link_to 'Cancel', tournaments_path, :class => 'btn' %>
     </div>
   </fieldset>
 <% end %>

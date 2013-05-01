@@ -1,3 +1,6 @@
+<% if @tournament_sections.empty? %>
+  &nbsp;&nbsp;<em>None at this time</em>
+<% else %>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -35,3 +38,4 @@
     </div>
     <%= will_paginate @tournament_sections, :container => true, :previous_label => "Previous", :next_label => "Next" %>
   </div>
+<% end %>

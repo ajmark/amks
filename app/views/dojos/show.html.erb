@@ -1,2 +1,17 @@
-<h1>Dojos#show</h1>
-<p>Find me in app/views/dojos/show.html.erb</p>
+<div class="row">
+  <div class="span5">
+    <h3>Dojo Details</h3>
+    <%= render :partial => "dojo_details" %>
+  </div>
+  <div class="span7">
+  	<h4>Current Members</h4>
+  	<%= render :partial => "current_members" %>
+  </div>
+
+</div>
+
+<div class="form-actions">
+  <%= link_to raw("<i class='icon-list'></i> Display All Dojos"), dojos_path, :class => 'btn'  %>&nbsp;&nbsp;
+  <%= link_to raw("<i class='icon-pencil'></i> Edit #{@dojo.name}"), edit_dojo_path(@dojo), :class => 'btn' %>&nbsp;&nbsp;
+  <%= link_to raw("<i class='icon-remove icon-white'></i> Delete #{@dojo.name}"), dojo_path(@dojo), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>
