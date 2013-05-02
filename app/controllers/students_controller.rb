@@ -18,6 +18,11 @@ class StudentsController < ApplicationController
 
   def edit
     @student = Student.find(params[:id])
+    if @student.user.nil? 
+      @student.build_user
+    else 
+      user = @student.user
+    end 
   end
 
   def create
