@@ -7,7 +7,11 @@
 	</div>
 	<div class="span5">
 	  <h3>Students Registered</h3>
-		<%= render :partial => "section_students" %>
+	  	<% if @section.tournament.active %> 
+		  <%= render :partial => "section_students" %>
+		<% else %>
+		   <%= render :partial => "inactive_tournament_section_students" %>
+		<% end %>
 		<!-- <br /> -->
 		<%= render :partial => "quick_register_student_for_section" %>
 	</div>
