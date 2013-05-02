@@ -20,6 +20,18 @@
   <b>Waiver Signed:</b> <%= @student.waiver_signed ? "Yes" : "No" %>
 </p>
 
+<p> 
+  <b>User Account:</b> 
+     <% if @student.user.nil? %> 
+     	<em>No user account for this student</em> 
+     <% else %>
+     	<%= @student.user.role.capitalize %>  
+     	<p>
+     	  <b> Email: </b> <%= @student.user.email %>
+        </p>
+     <% end %> 
+</p>
+
 <p>
   <b>Active:</b> <%= @student.active ? "Yes" : "No" %>
 </p>
