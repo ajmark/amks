@@ -24,7 +24,7 @@ class Tournament < ActiveRecord::Base
   
   # Callbacks
   before_destroy :check_if_destroyable
-  after_rollback :deactivate_tournament_logic
+  after_rollback :deactivate_tournament_logic, :on => :destroy
 
   private
   def check_if_destroyable

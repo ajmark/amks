@@ -9,7 +9,7 @@ class Student < ActiveRecord::Base
   # Callbacks
   before_save :reformat_phone
   before_destroy :check_if_destroyable
-  after_rollback :deactivate_student_logic
+  after_rollback :deactivate_student_logic, :on => :destroy
   
   # Relationships
   has_many :registrations

@@ -27,7 +27,7 @@ class Event < ActiveRecord::Base
   
   # Callbacks
   before_destroy :check_if_destroyable
-  after_rollback :deactivate_event_logic
+  after_rollback :deactivate_event_logic, :on => :destroy
   
   
   # private

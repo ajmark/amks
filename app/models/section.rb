@@ -49,7 +49,7 @@ class Section < ActiveRecord::Base
   
   # Callbacks
   before_destroy :check_if_destroyable
-  after_rollback :deactivate_section_logic
+  after_rollback :deactivate_section_logic, :on => :destroy
 
   private
   def check_if_destroyable
