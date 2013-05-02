@@ -5,7 +5,7 @@
     <%= f.input :email %>
     <%= f.input :password %>
     <%= f.input :password_confirmation %>
-    <%= f.input :role %>
+    <%= f.input :role, :collection => User::ROLES %>
   </div>
 
   <div class="form-actions">

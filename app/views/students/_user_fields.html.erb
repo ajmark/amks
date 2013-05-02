@@ -1,11 +1,11 @@
 <div class="fields">
   <div class="min_user">
     <!-- x icon to remove -->
-    <%= f.link_to_remove(raw("<i class='icon-remove'></i>")) %>
+    <%# f.link_to_remove(raw("<i class='icon-remove'></i>")) %>
     <!-- fields -->
     <%= f.input :email %>
     <%= f.input :password %>
     <%= f.input :password_confirmation %>
-    <%= f.input :role %>
+    <%= f.input :role, :collection => User::ROLES %>
   </div>
 </div>
