@@ -77,33 +77,33 @@ class DojoTest < ActiveSupport::TestCase
       deny bad_dojo.valid?, "#{bad_dojo.to_yaml}"
     end
     
-    should "delete dojos that have never had students assigned" do
-      uif = FactoryGirl.create(:dojo, name: "UIF", street: "801 Union Place", city:"Pittsburgh", zip: "15212")
-      uif.destroy
-      assert uif.destroyed?
-    end
-    
-    should "deactivate dojos that have had students ever assigned" do
-      create_student_context
-      create_min_dojo_student_context
-      assert_equal 3, @north.dojo_students.size
-      @north.destroy
-      deny @north.destroyed?
-      @north.reload
-      deny @north.active
-      remove_student_context
-      remove_min_dojo_student_context
-    end
-    
-    should "end current assignments at a deactivated dojo" do
-      create_student_context
-      create_min_dojo_student_context
-      assert_equal 3, @north.dojo_students.size
-      @north.destroy
-      @north.reload
-      assert_equal 0, @north.current_students.size
-      remove_student_context
-      remove_min_dojo_student_context
-    end
+    # should "delete dojos that have never had students assigned" do
+    #   uif = FactoryGirl.create(:dojo, name: "UIF", street: "801 Union Place", city:"Pittsburgh", zip: "15212")
+    #   uif.destroy
+    #   assert uif.destroyed?
+    # end
+    # 
+    # should "deactivate dojos that have had students ever assigned" do
+    #   create_student_context
+    #   create_min_dojo_student_context
+    #   assert_equal 3, @north.dojo_students.size
+    #   @north.destroy
+    #   deny @north.destroyed?
+    #   @north.reload
+    #   deny @north.active
+    #   remove_student_context
+    #   remove_min_dojo_student_context
+    # end
+    # 
+    # should "end current assignments at a deactivated dojo" do
+    #   create_student_context
+    #   create_min_dojo_student_context
+    #   assert_equal 3, @north.dojo_students.size
+    #   @north.destroy
+    #   @north.reload
+    #   assert_equal 0, @north.current_students.size
+    #   remove_student_context
+    #   remove_min_dojo_student_context
+    # end
   end
 end

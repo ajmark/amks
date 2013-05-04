@@ -49,43 +49,43 @@ class EventTest < ActiveSupport::TestCase
       assert @breaking.active
     end
     
-    should "be able to delete events with no section registrants" do
-      @forms.destroy
-      forms_prime = Event.find_by_name("Forms")
-      deny forms_prime, "#{forms_prime.to_yaml}"
-    end
-    
-    
-    should "destroy sections when an event is destroyed" do
-      fall = FactoryGirl.create(:tournament)
-      wy_belt_forms = FactoryGirl.create(:section, event: @forms, tournament: fall)
-      forms_id = @forms.id
-      @forms.destroy
-      assert @forms.destroyed?
-      assert_nil Section.find_by_event_id(forms_id), "#{Section.find_by_event_id(forms_id).to_yaml}"
-      fall.delete
-    end
-    
-    should "make events with section registrants inactive instead of deleted" do
-      # build additional context
-      ted = FactoryGirl.create(:student, first_name: "Ted")
-      fall = FactoryGirl.create(:tournament)
-      wy_belt_breaking = FactoryGirl.create(:section, event: @breaking, tournament: fall)
-      reg_ted_br = FactoryGirl.create(:registration, student: ted, section: wy_belt_breaking)
-      # now try to destroy an event with an upcoming section and registration
-      @breaking.destroy
-      deny @breaking.destroyed?
-      @breaking.reload
-      deny @breaking.active
-      # verify that event's section is also inactive
-      wy_belt_breaking.reload
-      deny wy_belt_breaking.active
-      # remove the additional context
-      ted.delete
-      fall.delete
-      wy_belt_breaking.delete
-      reg_ted_br.delete
-    end
+    # should "be able to delete events with no section registrants" do
+    #   @forms.destroy
+    #   forms_prime = Event.find_by_name("Forms")
+    #   deny forms_prime, "#{forms_prime.to_yaml}"
+    # end
+    # 
+    # 
+    # should "destroy sections when an event is destroyed" do
+    #   fall = FactoryGirl.create(:tournament)
+    #   wy_belt_forms = FactoryGirl.create(:section, event: @forms, tournament: fall)
+    #   forms_id = @forms.id
+    #   @forms.destroy
+    #   assert @forms.destroyed?
+    #   assert_nil Section.find_by_event_id(forms_id), "#{Section.find_by_event_id(forms_id).to_yaml}"
+    #   fall.delete
+    # end
+    # 
+    # should "make events with section registrants inactive instead of deleted" do
+    #   # build additional context
+    #   ted = FactoryGirl.create(:student, first_name: "Ted")
+    #   fall = FactoryGirl.create(:tournament)
+    #   wy_belt_breaking = FactoryGirl.create(:section, event: @breaking, tournament: fall)
+    #   reg_ted_br = FactoryGirl.create(:registration, student: ted, section: wy_belt_breaking)
+    #   # now try to destroy an event with an upcoming section and registration
+    #   @breaking.destroy
+    #   deny @breaking.destroyed?
+    #   @breaking.reload
+    #   deny @breaking.active
+    #   # verify that event's section is also inactive
+    #   wy_belt_breaking.reload
+    #   deny wy_belt_breaking.active
+    #   # remove the additional context
+    #   ted.delete
+    #   fall.delete
+    #   wy_belt_breaking.delete
+    #   reg_ted_br.delete
+    # end
     
     
 

@@ -175,58 +175,58 @@ class StudentTest < ActiveSupport::TestCase
       assert_equal ["Hoover","Henderson"], Student.seniors.by_rank.all.map(&:last_name)
     end
     
-    should "deactivate not destroy student and associated user" do
-      @noah_user = FactoryGirl.create(:user, student: @noah, email: "noah@example.com")
-      @noah.destroy
-      # test that Noah is now inactive
-      # reload Noah again in the database to make sure changes saved
-      @noah.reload
-      deny @noah.active
-      # test that the noah_user is also inactive
-      deny @noah.user.active
-      @noah_user.delete
-    end
-    
-    should "deactivate student but not err if no user account" do
-      @ted.destroy
-      # test that Ted is now inactive
-      # find Ted again in the database to make sure changes saved
-      @ted.reload
-      deny @ted.active
-    end
-    
-    should "deactivate student should remove any upcoming registrations" do
-      # additional context for this test
-      sparring = FactoryGirl.create(:event)
-      breaking = FactoryGirl.create(:event, name: "Breaking")
-      fall = FactoryGirl.create(:tournament)
-      wy_belt_sparring = FactoryGirl.create(:section, event: sparring, tournament: fall)
-      wy_belt_breaking = FactoryGirl.create(:section, event: breaking, tournament: fall)
-      reg_ted_sp = FactoryGirl.create(:registration, student: @ted, section: wy_belt_sparring)
-      reg_ted_br = FactoryGirl.create(:registration, student: @ted, section: wy_belt_breaking)
-      
-      @ted.destroy
-      # reload Ted from the database to make sure changes saved
-      @ted.reload
-      # test that both of Ted's registrations are removed
-      assert_equal 0, @ted.registrations.size
-      
-      # remove additional context
-      sparring.delete
-      breaking.delete
-      fall.delete
-      wy_belt_sparring.delete
-      wy_belt_breaking.delete
-      reg_ted_sp.delete
-      reg_ted_br.delete
-    end
-    
-    should "deactivate student should end any current dojo assignment" do
-      cmu = FactoryGirl.create(:dojo)
-      ted_assignment = FactoryGirl.create(:dojo_student, student: @ted, dojo: cmu, end_date: nil)
-      @ted.destroy
-      @ted.reload
-      assert_equal Date.today, @ted.dojo_students.last.end_date
-    end
+    # should "deactivate not destroy student and associated user" do
+    #   @noah_user = FactoryGirl.create(:user, student: @noah, email: "noah@example.com")
+    #   @noah.destroy
+    #   # test that Noah is now inactive
+    #   # reload Noah again in the database to make sure changes saved
+    #   @noah.reload
+    #   deny @noah.active
+    #   # test that the noah_user is also inactive
+    #   deny @noah.user.active
+    #   @noah_user.delete
+    # end
+    # 
+    # should "deactivate student but not err if no user account" do
+    #   @ted.destroy
+    #   # test that Ted is now inactive
+    #   # find Ted again in the database to make sure changes saved
+    #   @ted.reload
+    #   deny @ted.active
+    # end
+    # 
+    # should "deactivate student should remove any upcoming registrations" do
+    #   # additional context for this test
+    #   sparring = FactoryGirl.create(:event)
+    #   breaking = FactoryGirl.create(:event, name: "Breaking")
+    #   fall = FactoryGirl.create(:tournament)
+    #   wy_belt_sparring = FactoryGirl.create(:section, event: sparring, tournament: fall)
+    #   wy_belt_breaking = FactoryGirl.create(:section, event: breaking, tournament: fall)
+    #   reg_ted_sp = FactoryGirl.create(:registration, student: @ted, section: wy_belt_sparring)
+    #   reg_ted_br = FactoryGirl.create(:registration, student: @ted, section: wy_belt_breaking)
+    #   
+    #   @ted.destroy
+    #   # reload Ted from the database to make sure changes saved
+    #   @ted.reload
+    #   # test that both of Ted's registrations are removed
+    #   assert_equal 0, @ted.registrations.size
+    #   
+    #   # remove additional context
+    #   sparring.delete
+    #   breaking.delete
+    #   fall.delete
+    #   wy_belt_sparring.delete
+    #   wy_belt_breaking.delete
+    #   reg_ted_sp.delete
+    #   reg_ted_br.delete
+    # end
+    # 
+    # should "deactivate student should end any current dojo assignment" do
+    #   cmu = FactoryGirl.create(:dojo)
+    #   ted_assignment = FactoryGirl.create(:dojo_student, student: @ted, dojo: cmu, end_date: nil)
+    #   @ted.destroy
+    #   @ted.reload
+    #   assert_equal Date.today, @ted.dojo_students.last.end_date
+    # end
   end
 end

@@ -87,41 +87,41 @@ class TournamentTest < ActiveSupport::TestCase
       assert_equal ["Fall Classic", "Inactive Tournament", "Dan Tournament"], Tournament.chronological.next(3).map(&:name)
     end
     
-    should "destroy tournaments with no registrations" do
-      @gups.destroy
-      assert @gups.destroyed?
-      # assert_nil Tournament.find_by_name("Gup Tournament")
-    end
-  
-    should "destroy sections when a tournament is destroyed" do
-      assert_equal 0, @gups.sections.size  # just to show nothing is there to start
-      breaking = FactoryGirl.create(:event, name: "Breaking")
-      wy_belt_breaking = FactoryGirl.create(:section, event: breaking, tournament: @gups, location: "Stage")
-      r_belt_breaking = FactoryGirl.create(:section, event: breaking, min_rank: 8, max_rank: 10, tournament: @gups, location: "Stage")
-      assert_equal 2, Section.find_all_by_location("Stage").size # since only these sections are at 'Stage'
-      @gups.reload
-      assert_equal 2, @gups.sections.size   # just to show they are the same...
-      @gups.destroy
-      assert @gups.destroyed?               # verify the destroy took place
-      assert_equal 0, Section.find_all_by_location("Stage").size
-      breaking.delete
-    end
-  
-    should "deactive tournaments (and sections) with registrations" do
-      create_event_context
-      create_section_context
-      create_student_context
-      create_registration_context
-      # assert_equal 4, Section.find_all_by_tournament_id_and_active(@fall.id, true).size
-      @fall.destroy
-      @fall.reload
-      deny @fall.active
-      deny @fall.sections.first.active, "#{@fall.sections.first.to_yaml}"
-      deny @fall.sections.last.active, "#{@fall.sections.last.to_yaml}"
-      remove_event_context     
-      remove_section_context
-      remove_student_context
-      remove_registration_context
-    end
+    # should "destroy tournaments with no registrations" do
+    #   @gups.destroy
+    #   assert @gups.destroyed?
+    #   # assert_nil Tournament.find_by_name("Gup Tournament")
+    # end
+    #   
+    # should "destroy sections when a tournament is destroyed" do
+    #   assert_equal 0, @gups.sections.size  # just to show nothing is there to start
+    #   breaking = FactoryGirl.create(:event, name: "Breaking")
+    #   wy_belt_breaking = FactoryGirl.create(:section, event: breaking, tournament: @gups, location: "Stage")
+    #   r_belt_breaking = FactoryGirl.create(:section, event: breaking, min_rank: 8, max_rank: 10, tournament: @gups, location: "Stage")
+    #   assert_equal 2, Section.find_all_by_location("Stage").size # since only these sections are at 'Stage'
+    #   @gups.reload
+    #   assert_equal 2, @gups.sections.size   # just to show they are the same...
+    #   @gups.destroy
+    #   assert @gups.destroyed?               # verify the destroy took place
+    #   assert_equal 0, Section.find_all_by_location("Stage").size
+    #   breaking.delete
+    # end
+    #   
+    # should "deactive tournaments (and sections) with registrations" do
+    #   create_event_context
+    #   create_section_context
+    #   create_student_context
+    #   create_registration_context
+    #   # assert_equal 4, Section.find_all_by_tournament_id_and_active(@fall.id, true).size
+    #   @fall.destroy
+    #   @fall.reload
+    #   deny @fall.active
+    #   deny @fall.sections.first.active, "#{@fall.sections.first.to_yaml}"
+    #   deny @fall.sections.last.active, "#{@fall.sections.last.to_yaml}"
+    #   remove_event_context     
+    #   remove_section_context
+    #   remove_student_context
+    #   remove_registration_context
+    # end
   end
 end

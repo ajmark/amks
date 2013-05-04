@@ -60,13 +60,13 @@ class UserTest < ActiveSupport::TestCase
       deny capital_ted_user.valid?
     end
     
-    should "require students to be active and in the system" do
-      jason_user = FactoryGirl.build(:user, student: @jason, email: "jason@example.com")
-      deny jason_user.valid?
-      jamie = FactoryGirl.build(:student, first_name: "Jamie")
-      jamie_user = FactoryGirl.build(:user, student: jamie, email: "jamie@example.com")
-      deny jamie_user.valid?
-    end
+    # should "require students to be active and in the system" do
+    #   jason_user = FactoryGirl.build(:user, student: @jason, email: "jason@example.com")
+    #   deny jason_user.valid?
+    #   jamie = FactoryGirl.build(:student, first_name: "Jamie")
+    #   jamie_user = FactoryGirl.build(:user, student: jamie, email: "jamie@example.com")
+    #   deny jamie_user.valid?
+    # end
     
     should "have role? method" do
       deny @jen_user.role?(:member)
