@@ -5,6 +5,7 @@ Feature: Manage dojos
 
 	Background:
 	  Given dojos and students
+	  Given a logged-in admin
 	
 	# READ METHODS
 	Scenario: View all dojos

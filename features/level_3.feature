@@ -5,6 +5,7 @@ Feature: Manage students
 
   Background:
     Given red and white belt students
+    Given a logged-in admin
   
   # READ METHODS
   Scenario: View all students

@@ -100,3 +100,18 @@ Given /^dojos and students$/ do
   create_students_and_dojos_context
   create_dojo_student_context
 end
+
+Given /^a valid admin$/ do
+  @profh = FactoryGirl.create(:student, first_name: "Professor", last_name: "Heimann", rank: 14)
+  @profh_user = FactoryGirl.create(:user, student: @profh, email: "profh@cmu.edu", role: "admin")
+end
+
+Given /^a logged-in admin$/ do
+  # Given "a valid admin"
+  # visit login_url
+  step "a valid admin"
+  visit login_path
+  fill_in "Email", :with => "profh@cmu.edu"
+  fill_in "Password", :with => "secret"
+  click_button("Log In")
+end

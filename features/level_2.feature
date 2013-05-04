@@ -5,6 +5,7 @@ Feature: Manage events
 
 	Background:
 	  Given an initial setup
+	  Given a logged-in admin
 	
 	# READ METHODS
 	Scenario: View all events

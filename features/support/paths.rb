@@ -12,6 +12,11 @@ module NavigationHelpers
     when /the home\s?page/
       '/'
       
+      
+    #### USERS
+    when /the login page/
+      login_path
+    
     #### EVENTS
     when /the events page/
       events_path
