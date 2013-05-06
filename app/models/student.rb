@@ -1,5 +1,5 @@
 class Student < ActiveRecord::Base
-  attr_accessible :first_name, :last_name, :date_of_birth, :rank, :phone, :waiver_signed, :active
+  attr_accessible :first_name, :last_name, :date_of_birth, :rank, :phone, :waiver_signed, :active, :user_attributes
   
   # Constants
   RANKS = [['Tenth Gup', 1],['Ninth Gup', 2],['Eighth Gup', 3],['Seventh Gup', 4],['Sixth Gup', 5],
@@ -9,7 +9,7 @@ class Student < ActiveRecord::Base
   # Callbacks
   before_save :reformat_phone
   before_destroy :check_if_destroyable
-  after_rollback :deactivate_student_logic
+  after_rollback :deactivate_student_logic, :on => :destroy
 
   # Relationships
   has_many :registrations
@@ -18,6 +18,9 @@ class Student < ActiveRecord::Base
   has_many :tournaments, :through => :sections
   has_many :dojo_students
   has_many :dojos, :through => :dojo_students
+
+  #Nested Form
+  accepts_nested_attributes_for :user, :reject_if => lambda { |user| user[:email].blank? }
   
   # Scopes
   scope :alphabetical, order('last_name, first_name')
