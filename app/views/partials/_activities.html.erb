@@ -1,3 +1,6 @@
+<% if current_user.student.registrations.empty? %> 
+  <em> You have not participated in any tournaments </em>
+<% else %> 
 <table class="table table-striped">
   <thead>
     <tr>
@@ -10,9 +13,18 @@
       <tr>
         <td><%= link_to registration.event.name, section_path(registration.section.id) %></td>
 				<td class="centered">
-				  --
+          <% if registration.final_standing == 1 %> 
+            <%= registration.final_standing %>st
+          <% elsif registration.final_standing == 2 %>
+            <%= registration.final_standing %>nd 
+          <% elsif registration.final_standing == 3 %> 
+            <%= registration.final_standing %>rd  
+          <% else %> 
+             <em> Did not place </em>
+          <% end %> 
 				</td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<% end %>
