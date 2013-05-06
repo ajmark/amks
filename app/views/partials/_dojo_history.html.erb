@@ -1,0 +1,20 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Dojo</th>
+			<th>Location</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% current_user.student.dojo_students.each do |dojo_student| %>
+      <tr>
+        <td><%= link_to dojo_student.dojo.name, dojo_path(dojo_student.dojo.id) %> 
+        <td><%= dojo_student.dojo.city %>, <%= dojo_student.dojo.state %> </td>
+				<td><%= dojo_student.start_date.strftime("%m/%d/%y") %> </td>
+        <td><%= dojo_student.end_date.strftime("%m/%d/%y") %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,19 +1,20 @@
 class TournamentsController < ApplicationController
+  before_filter :check_login
   def index
-  	@tournaments = Tournament.alphabetical.paginate(:page => params[:page]).per_page(8)
+    @tournaments = Tournament.alphabetical.paginate(:page => params[:page]).per_page(8)
   end
 
   def show
-  	@tournament = Tournament.find(params[:id])
+    @tournament = Tournament.find(params[:id])
     @tournament_sections = @tournament.sections.alphabetical.paginate(:page => params[:page]).per_page(8) 
   end
 
   def new
-  	@tournament = Tournament.new
+    @tournament = Tournament.new
   end
 
   def edit
-  	@tournament = Tournament.find(params[:id])
+    @tournament = Tournament.find(params[:id])
   end
 
   def create

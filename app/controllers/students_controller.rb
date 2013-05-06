@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-
+  before_filter :check_login
   def index
     @students = Student.active.alphabetical.paginate(:page => params[:page]).per_page(10)
     @inactive_students = Student.inactive.alphabetical.paginate(:page => params[:page]).per_page(10)
@@ -13,16 +13,10 @@ class StudentsController < ApplicationController
   
   def new
     @student = Student.new
-    @student.build_user
   end
 
   def edit
     @student = Student.find(params[:id])
-    if @student.user.nil? 
-      @student.build_user
-    else 
-      user = @student.user
-    end 
   end
 
   def create

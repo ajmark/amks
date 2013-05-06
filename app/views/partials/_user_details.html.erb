@@ -1,0 +1,27 @@
+<p>
+  <b>Name:</b> <%= current_user.student.proper_name %>
+</p>
+
+<p>
+  <b>Rank:</b> <%= rank_name(current_user.student.rank) %>
+</p>
+
+<p>
+  <b>Date of Birth:</b> <%= current_user.student.date_of_birth.strftime("%m/%d/%y") %>
+</p>
+
+<p>
+  <b>Phone:</b> <%= number_to_phone current_user.student.phone unless current_user.student.phone.nil? %>
+</p>
+
+<p>
+  <b>Waiver Signed:</b> <%= current_user.student.waiver_signed ? "Yes" : "No" %>
+</p>
+
+<p>
+  <b>Current Dojo:</b> <%= current_user.student.current_dojo %>
+</p>
+
+<p>
+  <b>Active:</b> <%= current_user.student.active ? "Yes" : "No" %>
+</p>

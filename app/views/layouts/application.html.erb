@@ -10,40 +10,46 @@
   <div class="wrapper">
     <div class="container">
     <!-- TITLE BAR -->
-  	<%= link_to(image_tag('amk_titlebar.png'), home_path) %>
-  	<!-- NAV BAR -->
-  	<div class="navbar">
-  	  <div class="navbar-inner">
-  	    <div class="container">
-  	      <%= render :partial => "partials/navigation" %>
-  	    </div>
-  	  </div>
-  	</div>
-  	</div>
-  	<!-- MAIN CONTENT -->
-  	<div class="container">
-  		<!-- flash messages -->
-  		<% flash.each do |name, msg| %>
-  			<div class="alert alert-<%= name == :notice ? "success" : "error" %>">
-  				<a class="close" data-dismiss="alert">&times;</a>
-  				<%= msg %>
-  			</div>
-      <% end %>
-  		<div class="row">
-  			<!-- main content placed here -->
-  			<div class="span12">
-  			  <div id="main_content">
-  			   <%= yield %>
-  			  </div>
-  			</div>
-  		</div>
-  	</div>
-  </div>
-	
-	<!-- FOOTER -->
-	<footer>
+    <%= link_to(image_tag('amk_titlebar.png'), home_path) %>
+    <!-- NAV BAR -->
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <% if logged_in? %>
+            <%= render :partial => "partials/navigation" %>
+            <p class="ident pull-right">
+              Welcome, <%= link_to current_user.email, user_path(current_user) %> | 
+              <%= link_to "Logout", logout_path %>
+            </p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    </div>
+    <!-- MAIN CONTENT -->
     <div class="container">
-			<%= render :partial => "partials/footer" %>
+      <!-- flash messages -->
+      <% flash.each do |name, msg| %>
+        <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+          <a class="close" data-dismiss="alert">&times;</a>
+          <%= msg %>
+        </div>
+      <% end %>
+      <div class="row">
+        <!-- main content placed here -->
+        <div class="span12">
+          <div id="main_content">
+           <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <%= render :partial => "partials/footer" %>
     </div>
   </footer>
 </body>

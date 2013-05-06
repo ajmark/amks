@@ -1,20 +1,21 @@
 class DojosController < ApplicationController
+  before_filter :check_login
   def index
-  	@dojos = Dojo.alphabetical.paginate(:page => params[:page]).per_page(10)
+    @dojos = Dojo.alphabetical.paginate(:page => params[:page]).per_page(10)
   end
 
   def show
-  	@dojo = Dojo.find(params[:id])
+    @dojo = Dojo.find(params[:id])
     @dojo_students = @dojo.dojo_students.current.includes(:student).order("students.last_name").paginate(:page => params[:page]).per_page(10)
     @dojo_student = DojoStudent.new
   end 
 
   def new
-  	@dojo = Dojo.new
+    @dojo = Dojo.new
   end
 
   def edit
-  	 @dojo = Dojo.find(params[:id])
+     @dojo = Dojo.find(params[:id])
   end
 
   def create
