@@ -1,2 +1,4 @@
 Use this README file to introduce your application and point to useful places in the API for learning more.
 Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+
+I put the add student to dojo on the dojo page and it breaks the cucumber tests because you can see the name Ed, Gruberman on the dropdown menu

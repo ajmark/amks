@@ -19,7 +19,12 @@
 </p>
 
 <p>
-  <b>Current Dojo:</b> <%= current_user.student.current_dojo %>
+  <b>Current Dojo:</b> 
+  <% if current_user.student.current_dojo.nil? %>
+    N/A
+  <% else %>
+    <%= current_user.student.current_dojo.name %>
+  <% end %>
 </p>
 
 <p>

@@ -67,7 +67,7 @@ module ApplicationHelper
   end
 
   def non_members_of(dojo)
-    all_students = Student.all 
+    all_students = Student.active.all 
     members = dojo.current_students 
     non_members = all_students - members 
     return non_members.sort_by(&:last_name)

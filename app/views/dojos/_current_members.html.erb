@@ -12,7 +12,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @dojo_students.each do |dojo_student| %>
+      <% @dojo_students.current.each do |dojo_student| %>
         <tr>
           <td><%= link_to dojo_student.student.name, student_path(dojo_student.student) %></td>
           <td><%= dojo_student.student.date_of_birth.nil? ? "---" : dojo_student.student.age  %></td>
