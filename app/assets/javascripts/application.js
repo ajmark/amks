@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery_nested_form
 //= require jquery.ui.all
 //= require_tree .
 
@@ -40,6 +41,14 @@
 		$('#registration_student_id').change(function()
 		 {
 		     $('#new_registration').submit();
+		 });
+	});
+
+// Autosubmit the quick dojo registration form on the dojo#show view
+	$(function() {
+		$('#dojo_student_student_id').change(function()
+		 {
+		     $('#new_dojo_student').submit();
 		 });
 	});
 	

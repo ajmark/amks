@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="span6">
+    <h3>Dojo Details</h3>
+    <%= render :partial => "dojo_details" %>
+  </div>
+  <div class="span6">
+  	<h4>Current Members</h4>
+  	<%= render :partial => "current_members" %>
+    <br>
+    <%= render :partial => "quick_register_student_for_dojo" %>
+  </div>
+
+</div>
+
+<div class="form-actions">
+  <%= link_to raw("<i class='icon-list'></i> Display All Dojos"), dojos_path, :class => 'btn'  %>&nbsp;&nbsp;
+  <%= link_to raw("<i class='icon-pencil'></i> Edit #{@dojo.name}"), edit_dojo_path(@dojo), :class => 'btn' %>&nbsp;&nbsp;
+  <%= link_to raw("<i class='icon-remove icon-white'></i> Delete #{@dojo.name}"), dojo_path(@dojo), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

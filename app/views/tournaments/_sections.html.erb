@@ -1,0 +1,41 @@
+<% if @tournament_sections.empty? %>
+  &nbsp;&nbsp;<em>None at this time</em>
+<% else %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Event</th>
+  			<th>Ranks</th>
+  			<th>Age(s)</th>
+  			<th class="centered">Registrants</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tournament_sections.each do |section| %>
+        <tr>
+          <td><%= link_to section.event.name, section_path(section) %></td>
+          <td>
+            <%= rank_range_for(section) %>
+          </td>
+          <td>
+            <%= age_range_for(section) %>
+          </td>
+          
+          <td class="centered"><%= section.registrations.size %></td>
+  				<td>
+  					<%= link_to raw("<i class='icon-file'></i> Details"), section_path(section), :class => 'btn btn-mini' %>
+            <%= link_to raw("<i class='icon-pencil'></i> Edit"), edit_section_path(section), :class => 'btn btn-mini' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="digg_pagination">
+    <div clas="page_info">
+      <%= page_entries_info @tournament_sections %>
+    </div>
+    <%= will_paginate @tournament_sections, :container => true, :previous_label => "Previous", :next_label => "Next" %>
+  </div>
+<% end %>

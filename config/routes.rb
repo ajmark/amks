@@ -1,10 +1,45 @@
 Karate67272::Application.routes.draw do
 
+  get "users/index"
+
+  get "users/show"
+
+  get "users/new"
+
+  get "users/edit"
+
+  get "dojo_students/index"
+
+  get "dojo_students/show"
+
+  get "dojo_students/new"
+
+  get "dojo_students/edit"
+
+  get "dojos/index"
+
+  get "dojos/show"
+
+  get "dojos/new"
+
+  get "dojos/edit"
+
+  get "tournaments/index"
+
+  get "tournaments/show"
+
+  get "tournaments/new"
+
+  get "tournaments/edit"
+
   # Generated routes
   resources :events
   resources :registrations
   resources :sections
   resources :students
+  resources :tournaments
+  resources :dojos
+  resources :dojo_students
   
   # Semi-static page routes
   match 'home' => 'home#index', :as => :home

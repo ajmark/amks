@@ -1,0 +1,36 @@
+<% if @dojo_students.empty? %>
+  &nbsp;&nbsp;<em>None at this time</em>
+<% else %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Rank</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @dojo_students.each do |dojo_student| %>
+        <tr>
+          <td><%= link_to dojo_student.student.name, student_path(dojo_student.student) %></td>
+          <td><%= dojo_student.student.date_of_birth.nil? ? "---" : dojo_student.student.age  %></td>
+          <td><%= rank_name(dojo_student.student.rank)  %></td>
+          <td>
+            <%= link_to raw("<i class='icon-pencil'></i> Edit"), edit_student_path(dojo_student.student), :class => 'btn btn-mini' %>
+          </td>
+          <td>
+            <%= link_to raw("<i class='icon-remove'></i>"), dojo_student_path(dojo_student), :method => 'delete', :confirm => 'Are you sure?' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="digg_pagination">
+    <div clas="page_info">
+      <%= page_entries_info @dojo_students %>
+    </div>
+    <%= will_paginate @dojo_students, :container => true, :previous_label => "Previous", :next_label => "Next", :inner_window => 2 %>
+  </div>
+<% end %>

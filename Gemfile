@@ -8,6 +8,7 @@ gem 'jquery-rails', '2.2.1'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'simple_form', '2.0.4'
 gem 'geocoder', '1.1.6'
+gem "nested_form", :git => 'git://github.com/ryanb/nested_form.git'
 
 # Gems used only in testing
 group :test do

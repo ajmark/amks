@@ -1,18 +1,26 @@
-<%= simple_form_for @student, :html => { :class => 'form-horizontal' } do |f| %>
-  <fieldset>
-    <legend><%= controller.action_name.capitalize %> Student</legend>
-		
-		<%= f.input :first_name %>
-		<%= f.input :last_name %>
-		<%= f.input :date_of_birth, :label => "Date of Birth", :as => :date, :start_year => Date.today.year - 4, :end_year => Date.today.year - 75, :order => [:month, :day, :year], :include_blank => true %>
-		<%= f.input :phone %>
-		<%= f.input :rank, :collection => Student::RANKS %>
-		<%= f.input :waiver_signed %>
-		<%= f.input :active %>
-
-    <div class="form-actions">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to 'Cancel', students_path, :class => 'btn' %>
+<%= simple_nested_form_for @student, :html => { :class => 'form-horizontal' } do |student_form| %>
+  <div class="row">
+    <div class="span6">
+      <fieldset>
+        <legend><%= controller.action_name.capitalize %> Student</legend>
+        <%= render :partial => "student_fields", :locals => { :f => student_form } %>
+      </fieldset>
     </div>
-  </fieldset>
+
+  <div class="span6">
+    <legend>Add User Account</legend>
+      <div id="user_account">
+        <%= student_form.simple_fields_for :user do |user_form| %>
+          <%= render :partial => "user_fields", :locals => { :f => user_form } %>
+        <% end %> 
+        <p>
+          <br /><%# student_form.link_to_add(raw("<i class='icon-plus icon-white'></i> Add User Account"), :user, :class => 'btn btn-mini btn-primary') %>
+        </p>
+      </div> 
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= student_form.submit nil, :class => 'btn btn-primary' %>
+    <% link_to 'Cancel', students_path, :class => 'btn' %>
+  </div>
 <% end %>

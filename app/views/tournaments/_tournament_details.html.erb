@@ -1,0 +1,11 @@
+<p>
+	<b>Name:</b> <%= @tournament.name %>
+</p>
+
+<p>
+  <b>Ranks:</b> <%= rank_range_for(@tournament) %>
+</p>
+
+<p>
+  <b>Active:</b> <%= @tournament.active ? "Yes" : "No" %>
+</p>

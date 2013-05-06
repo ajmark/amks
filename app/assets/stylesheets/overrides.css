@@ -71,4 +71,14 @@ td.centered {
 	background-image: url("./img/glyphicons-halflings-white.png");
 }
 
+.min_user {
+    background-color: #d1ecfb;
+    padding: 15px 2px 2px 5px;
+    border: 1px solid blue;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    select { width: 180px; }
+    input { width: 182px; }
+}
 
