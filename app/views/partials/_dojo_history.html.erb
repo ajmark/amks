@@ -13,7 +13,11 @@
         <td><%= link_to dojo_student.dojo.name, dojo_path(dojo_student.dojo.id) %> 
         <td><%= dojo_student.dojo.city %>, <%= dojo_student.dojo.state %> </td>
 				<td><%= dojo_student.start_date.strftime("%m/%d/%y") %> </td>
-        <td><%= dojo_student.end_date.strftime("%m/%d/%y") %> </td>
+        <% if dojo_student.end_date.nil? %> 
+          <td> N/A </td>
+        <% else %> 
+          <td><%= dojo_student.end_date.strftime("%m/%d/%y") %> </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

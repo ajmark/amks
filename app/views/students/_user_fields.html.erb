@@ -6,8 +6,8 @@
     <%= f.input :email %>
     <%= f.input :password %>
     <%= f.input :password_confirmation %>
-    <%# if current_user.role? :admin %>
-    <%= f.input :role, :collection => User::ROLES %>
-    <%# end %>
+    <% if current_user.role? :admin %>
+      <%= f.input :role, :collection => User::ROLES %>
+    <% end %>
   </div>
 </div>
