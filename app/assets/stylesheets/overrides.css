@@ -105,3 +105,7 @@ img.left {
     input { width: 182px; }
 }
 
+li:hover {
+	background-color: #E6E6E6;
+}
+
