@@ -3,16 +3,16 @@
   	<% if logged_in? and current_user.role? :admin %> 
   	  <li><%= link_to "Dashboard", home_path %></li>
       <li><%= link_to "Students", students_path %></li>
+      <li><%= link_to "Dojos", dojos_path %></li>
+      <li><%= link_to "Tournaments", tournaments_path %></li>
       <li><%= link_to "Sections", sections_path %></li>
       <li><%= link_to "Events", events_path %></li>
-      <li><%= link_to "Tournaments", tournaments_path %></li>
-      <li><%= link_to "Dojos", dojos_path %></li>
     <% elsif logged_in? and current_user.role? :member %> 
       <li><%= link_to "Dashboard", home_path %></li>
       <li><%= link_to "Students", students_path %></li>
-      <li><%= link_to "Sections", sections_path %></li>
-      <li><%= link_to "Tournaments", tournaments_path %></li>
       <li><%= link_to "Dojos", dojos_path %></li>
+      <li><%= link_to "Tournaments", tournaments_path %></li>
+      <li><%= link_to "Sections", sections_path %></li>
     <% else %>
       <li><%= link_to "Dojos", dojos_path %></li>
     <% end %>
