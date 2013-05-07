@@ -5,6 +5,8 @@
   <thead>
     <tr>
       <th>Event</th>
+      <th>Section</th>
+      <th>Age(s)</th>
       <th>Tournament</th>
 			<th class="centered">Place</th>
     </tr>
@@ -13,6 +15,8 @@
     <% current_user.student.registrations.each do |registration| %>
       <tr>
         <td> <%= link_to registration.event.name, section_path(registration.section.id) %> </td>
+        <td> <%= rank_range_for(registration.section) %> </td>
+        <td> <%= age_range_for(registration.section) %> </td>
         <td> <%= link_to registration.section.tournament.name, tournament_path(registration.section.tournament) %> </td>
 				<td>
           <% if registration.final_standing == 1 %> 
