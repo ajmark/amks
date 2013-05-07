@@ -5,7 +5,7 @@
     <%= f.input :section_id, :as => :hidden, :collection => Section.active.alphabetical.all %>
     <%= f.input :student_id, :as => :hidden, :collection => Student.active.alphabetical.all %>
     <%= f.input :final_standing, :collection => Registration::STANDINGS %> 
-    <%= f.input :source, :as => :hidden, :input_html => { :value => "new_page" } %>
+    <%# f.input :source, :as => :hidden, :input_html => { :value => "new_page" } %>
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
