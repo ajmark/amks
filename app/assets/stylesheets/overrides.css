@@ -1,3 +1,8 @@
+body { 
+     padding-top: 60px; 
+     font-size: 13px;
+} 
+
 #footer {
 	margin-top: 15px;
   padding-top: 10px;
@@ -90,12 +95,12 @@ img.left {
 }
 
 .min_user {
-    background-color: #d1ecfb;
+    /*background-color: #d1ecfb;*/
     padding: 15px 2px 2px 5px;
-    border: 1px solid blue;
+    /*border: 1px solid blue;*/
     margin-top: 5px;
     margin-bottom: 10px;
-    border-radius: 10px;
+    /*border-radius: 10px;*/
     select { width: 180px; }
     input { width: 182px; }
 }

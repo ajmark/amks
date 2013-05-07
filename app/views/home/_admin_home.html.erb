@@ -1,7 +1,8 @@
 <h2>Hello <%= current_user.student.first_name %>! </h2>
+<br/>
 <div class="row">
 	<div class="span4">
-	  <h3>User Info</h3>
+	  <h4>User Info</h4>
 	  <div class="well">
 	    <%= image_tag('blank_profile.jpg') %>
 	  </div>
@@ -9,19 +10,19 @@
 	</div>
 
 	<div class="span8">
-	  <h3>Dojo History</h3>
+	  <h4>Dojo History</h4>
 	  <%= render :partial => 'partials/dojo_history' %> 
 	  <br>
-	  <h3>Tournament Activity</h3>
+	  <h4>Tournament Activity</h4>
 	  <%= render :partial => 'partials/activities' %>
 	  <br>
-	  <h3>Upcoming Tournaments</h3>
+	  <h4>Upcoming Tournaments</h4>
 	  <%= render :partial => 'partials/upcoming_tournaments' %>
 	  <br>
-	  <h3>Unpaid Registrants</h3>
+	  <h4>Unpaid Registrants</h4>
 	  <%= render :partial => 'partials/payment_info' %>
 	  <br>
-	  <h3>Unsigned Waivers</h3>
+	  <h4>Unsigned Waivers</h4>
 	  <%= render :partial => 'partials/unsigned_waivers' %>
 	  <br>
 	</div>

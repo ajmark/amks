@@ -10,19 +10,20 @@
   <div class="wrapper">
     <div class="container">
     <!-- TITLE BAR -->
-    <%= link_to(image_tag('amk_titlebar.png'), home_path) %>
+    <%= link_to(image_tag('amk_titlebar_2.png'), home_path) %>
+    <br><br>
     <!-- NAV BAR -->
-    <div class="navbar">
+    <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
             <%= render :partial => "partials/navigation" %>
-            <p class="ident pull-right">
+            <ul class="nav ident pull-right">
               <% if logged_in? %>
-                Welcome, <%= link_to current_user.email, user_path(current_user) %> | 
+                Welcome, <%= link_to current_user.student.proper_name, home_path(current_user) %> &nbsp; | &nbsp;
                 <%= link_to "Logout", logout_path %>
               <% else %>
                 <%= link_to 'Log In', login_path %> 
-            </p>
+            </ul>
           <% end %>
         </div>
       </div>
