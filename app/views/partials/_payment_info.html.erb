@@ -14,7 +14,9 @@
     <% Registration.unpaid.by_student.each do |registration| %>
       <tr>
         <td> <%= link_to registration.student.name, student_path(registration.student) %> </td>
-				<td> <%=   %> </td>
+        <td> <%= link_to registration.section.tournament.name, tournament_path(registration.section.tournament) %></td>
+				<td> <%= link_to registration.section.event.name, section_path(registration.section) %> </td>
+        <td> <%= registration.date.strftime("%m/%d/%y") %> </td>
       </tr>
     <% end %>
   </tbody>
