@@ -18,7 +18,7 @@ class StudentsController < ApplicationController
 
   def edit
     @student = Student.find(params[:id])
-    if @student.build_user?
+    if @student.user.nil?
       @student.build_user
     else 
       user = @student.user
