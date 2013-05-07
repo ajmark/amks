@@ -7,18 +7,36 @@
     <thead>
       <tr>
         <th>Name</th>
-  			<th>Rank</th>
-  			<th>Age</th>
-  			<th>Place</th>
+        <th>Rank</th>
+        <th>Age</th>
+        <th>Place</th>
+        <th>&nbsp;</th>
       </tr>
     </thead>
     <tbody>
-      <% @section_students.each do |student| %>
+      <% @section.registrations.each do |registration| %>
         <tr>
-          <td><%= link_to student.name, student_path(student) %></td>
-          <td><%= rank_name(student.rank)  %></td>
-          <td class="centered"><%= student.age %></td>
-          <td><%= link_to raw("<i class='icon-remove'></i>"), registration_path(Registration.for_student(student.id).for_section(@section.id).first), :method => 'delete', :confirm => 'Are you sure?' %>
+          <td><%= link_to registration.student.name, registration_path(registration.student) %></td>
+          <td><%= rank_name(registration.student.rank)  %></td>
+          <td class="centered"><%= registration.student.age %></td>
+          <td>
+          <% if registration.final_standing.nil? %>
+            Did not place
+          <% else %>
+            <% if registration.final_standing == 1 %>
+              <%= registration.final_standing %>st
+            <% end %>
+            <% if registration.final_standing == 2 %>
+              <%= registration.final_standing %>nd
+            <% end %>
+            <% if registration.final_standing == 3 %>
+              <%= registration.final_standing %>rd
+            <% end %>
+          <% end %>
+          </td>
+          <td> 
+            <%= link_to raw("<i class='icon-pencil'></i> Edit"), edit_registration_path(registration), :class => 'btn btn-mini' %>
+          </td>
         </tr>
       <% end %>
     </tbody>

@@ -1,19 +1,20 @@
 <div class="row">
-	<div class="span7">
+	<div class="span6">
 		<h3>Section Details</h3>
 		<%= render :partial => "section_details" %>
 		<p class="supertiny">&nbsp;</p>
 		<%# render :partial => "register_student_for_section" %>
 	</div>
-	<div class="span5">
+	<div class="span6">
 	  <h3>Students Registered</h3>
 	  	<% if @section.tournament.active %> 
 		  <%= render :partial => "section_students" %>
+		  <!-- <br /> -->
+		  <%= render :partial => "quick_register_student_for_section" %>
 		<% else %>
 		   <%= render :partial => "inactive_tournament_section_students" %>
-		<% end %>
-		<!-- <br /> -->
-		<%= render :partial => "quick_register_student_for_section" %>
+		<% end %> 
+
 	</div>
 </div>
 

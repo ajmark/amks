@@ -1,6 +1,7 @@
 class Registration < ActiveRecord::Base
   attr_accessible :date, :section_id, :student_id, :fee_paid, :final_standing
   
+  STANDINGS = [['1st', 1], ['2nd', 2], ['3rd', 3]]
   # Relationships
   belongs_to :section
   belongs_to :student
