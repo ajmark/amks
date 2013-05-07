@@ -17,5 +17,11 @@
 	  <br>
 	  <h3>Upcoming Tournaments</h3>
 	  <%= render :partial => 'partials/upcoming_tournaments' %>
+	  <br>
 	</div>
+</div>
+
+<div class="form-actions">
+    <%= link_to raw("<i class='icon-pencil'></i> Edit Your Info"), edit_student_path(current_user.student), :class => 'btn' %>&nbsp;&nbsp;
+    <%= link_to raw("<i class='icon-remove icon-white'></i> Delete Your Account"), student_path(current_user.student), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
 </div>

@@ -5,13 +5,15 @@
   <thead>
     <tr>
       <th>Event</th>
+      <th>Tournament</th>
 			<th class="centered">Place</th>
     </tr>
   </thead>
   <tbody>
     <% current_user.student.registrations.each do |registration| %>
       <tr>
-        <td><%= link_to registration.event.name, section_path(registration.section.id) %></td>
+        <td> <%= link_to registration.event.name, section_path(registration.section.id) %> </td>
+        <td> <%= link_to registration.section.tournament.name, tournament_path(registration.section.tournament) %> </td>
 				<td>
           <% if registration.final_standing == 1 %> 
             <%= registration.final_standing %>st

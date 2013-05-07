@@ -1,4 +1,5 @@
 <%= simple_form_for @dojo_student, :html => { :class => 'ds_form' } do |f| %>	
 		<%= f.input :student_id, :label => 'Register a student for this dojo:', :collection => non_members_of(@dojo) %>
 		<%= f.input :dojo_id, :as => :hidden, :input_html => { :value => @dojo.id } %>
+        <%= f.submit "Add Student to Dojo", :class => 'btn btn-primary' %>
 <% end %>

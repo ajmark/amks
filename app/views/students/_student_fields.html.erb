@@ -1,7 +1,14 @@
-<%= f.input :first_name %>
-<%= f.input :last_name %>
-<%= f.input :date_of_birth, :label => "Date of Birth", :as => :date, :start_year => Date.today.year - 4, :end_year => Date.today.year - 75, :order => [:month, :day, :year], :include_blank => true %>
-<%= f.input :phone %>
-<%= f.input :rank, :collection => Student::RANKS %>
-<%= f.input :waiver_signed %>
-<%= f.input :active %>
+<% if current_user.role? :admin %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :date_of_birth, :label => "Date of Birth", :as => :date, :start_year => Date.today.year - 4, :end_year => Date.today.  year - 75, :order => [:month, :day, :year], :include_blank => true %>
+  <%= f.input :phone %>
+  <%= f.input :rank, :collection => Student::RANKS %>
+  <%= f.input :waiver_signed %>
+  <%= f.input :active %>
+<% else %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :date_of_birth, :label => "Date of Birth", :as => :date, :start_year => Date.today.year - 4, :end_year => Date.today.  year - 75, :order => [:month, :day, :year], :include_blank => true %>
+  <%= f.input :phone %>
+<% end %>
