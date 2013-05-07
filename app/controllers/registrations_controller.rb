@@ -33,7 +33,7 @@ class RegistrationsController < ApplicationController
     @registration = Registration.find(params[:id])
     if @registration.update_attributes(params[:registration])
       flash[:notice] = "Successfully updated registration for #{@registration.student.proper_name}."
-      redirect_to @registration
+      redirect_to section_path(@registration.section_id)
     else
       render :action => 'edit'
     end

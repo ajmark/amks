@@ -14,9 +14,9 @@
       </tr>
     </thead>
     <tbody>
-      <% @section.registrations.each do |registration| %>
+      <% @section.registrations.by_student.each do |registration| %>
         <tr>
-          <td><%= link_to registration.student.name, registration_path(registration.student) %></td>
+          <td><%= link_to registration.student.name, student_path(registration.student) %></td>
           <td><%= rank_name(registration.student.rank)  %></td>
           <td class="centered"><%= registration.student.age %></td>
           <td>

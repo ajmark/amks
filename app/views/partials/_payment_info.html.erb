@@ -1,0 +1,22 @@
+<% if Registration.unpaid.empty? %> 
+  <em> There are no unpaid registrations </em>
+<% else %> 
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Tournament</th>
+      <th>Section</th>
+      <th>Registration Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% Registration.unpaid.by_student.each do |registration| %>
+      <tr>
+        <td> <%= link_to registration.student.name, student_path(registration.student) %> </td>
+				<td> <%=   %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>

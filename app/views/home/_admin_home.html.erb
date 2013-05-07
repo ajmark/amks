@@ -3,7 +3,7 @@
 	<div class="span4">
 	  <h3>User Info</h3>
 	  <div class="well">
-	  picture here
+	    <%= image_tag('blank_profile.jpg') %>
 	  </div>
 	  <%= render :partial => 'partials/user_details' %>
 	</div>
@@ -19,5 +19,9 @@
 	  <%= render :partial => 'partials/activities' %>
 	  <br>
 	  <h3>Upcoming Tournaments</h3>
+	  <%= render :partial => 'partials/upcoming_tournaments' %>
+	  <br>
+	  <h3>Unpaid Registrants</h3>
+	  <%= render :partial => 'partials/payment_info' %>
 	</div>
 </div>

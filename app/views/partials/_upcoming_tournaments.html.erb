@@ -1,0 +1,20 @@
+<% if Tournament.upcoming.empty? %> 
+  <em> There are no upcoming tournaments </em>
+<% else %> 
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+			<th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% Tournament.upcoming.each do |tournament| %>
+      <tr>
+        <td> <%= link_to tournament.name, tournament_path(tournament.id) %> </td>
+				<td> <%= tournament.date.strftime("%m/%d/%y") %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
