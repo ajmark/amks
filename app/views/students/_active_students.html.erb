@@ -16,9 +16,11 @@
           <td><%= link_to student.name, student_path(student) %></td>
           <td><%= student.date_of_birth.nil? ? "---" : student.age  %></td>
           <td><%= rank_name(student.rank)  %></td>
-  				<td>
-            <%= link_to raw("<i class='icon-pencil'></i> Edit"), edit_student_path(student), :class => 'btn btn-mini' %>
-          </td>
+          <% if current_user.role? :admin %>
+  				  <td>
+              <%= link_to raw("<i class='icon-pencil'></i> Edit"), edit_student_path(student), :class => 'btn btn-mini' %>
+            </td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

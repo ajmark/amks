@@ -18,7 +18,9 @@
           <td><%= link_to student.name, student_path(student) %></td>
           <td><%= rank_name(student.rank)  %></td>
           <td class="centered"><%= student.age %></td>
-          <td><%= link_to raw("<i class='icon-remove'></i>"), registration_path(Registration.for_student(student.id).for_section(@section.id).first), :method => 'delete', :confirm => 'Are you sure?' %>
+          <% if current_user.role? :admin %>
+            <td><%= link_to raw("<i class='icon-remove'></i>"), registration_path(Registration.for_student(student.id).for_section(@section.id).first), :method => 'delete', :confirm => 'Are you sure?' %>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

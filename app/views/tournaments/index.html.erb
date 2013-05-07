@@ -5,4 +5,6 @@
 	</div>
 </div>
 
-<%= link_to raw("<i class='icon-plus icon-white'></i> Add a New Tournament"), new_tournament_path, :class => 'btn btn-primary', :id => 'Create Student' %>
+<% if current_user.role? :admin %>
+  <%= link_to raw("<i class='icon-plus icon-white'></i> Add a New Tournament"), new_tournament_path, :class => 'btn btn-primary', :id => 'Create Student' %>
+<% end %>

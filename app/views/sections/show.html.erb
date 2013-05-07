@@ -10,7 +10,9 @@
 	  	<% if @section.tournament.active %> 
 		  <%= render :partial => "section_students" %>
 		  <!-- <br /> -->
-		  <%= render :partial => "quick_register_student_for_section" %>
+		  <% if current_user.role? :admin %>
+		    <%= render :partial => "quick_register_student_for_section" %>
+		  <% end %>
 		<% else %>
 		   <%= render :partial => "inactive_tournament_section_students" %>
 		<% end %> 
@@ -20,6 +22,8 @@
 
 <div class="form-actions">
   <%= link_to raw("<i class='icon-list'></i> Display All Sections"), sections_path, :class => 'btn'  %>&nbsp;&nbsp;
-  <%= link_to raw("<i class='icon-pencil'></i> Edit Section"), edit_section_path(@section), :class => 'btn' %>&nbsp;&nbsp;
-  <%= link_to raw("<i class='icon-remove icon-white'></i> Delete Section"), section_path(@section), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+  <% if current_user.role? :admin %>
+    <%= link_to raw("<i class='icon-pencil'></i> Edit Section"), edit_section_path(@section), :class => 'btn' %>&nbsp;&nbsp;
+    <%= link_to raw("<i class='icon-remove icon-white'></i> Delete Section"), section_path(@section), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+  <% end %>
 </div>

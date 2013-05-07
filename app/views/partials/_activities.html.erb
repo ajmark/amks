@@ -12,7 +12,7 @@
     <% current_user.student.registrations.each do |registration| %>
       <tr>
         <td><%= link_to registration.event.name, section_path(registration.section.id) %></td>
-				<td class="centered">
+				<td>
           <% if registration.final_standing == 1 %> 
             <%= registration.final_standing %>st
           <% elsif registration.final_standing == 2 %>

@@ -25,7 +25,9 @@
           <td class="centered"><%= section.registrations.size %></td>
   				<td>
   					<%= link_to raw("<i class='icon-file'></i> Details"), section_path(section), :class => 'btn btn-mini' %>
-            <%= link_to raw("<i class='icon-pencil'></i> Edit"), edit_section_path(section), :class => 'btn btn-mini' %>
+            <% if current_user.role? :admin %>
+              <%= link_to raw("<i class='icon-pencil'></i> Edit"), edit_section_path(section), :class => 'btn btn-mini' %>
+            <% end %>
           </td>
         </tr>
       <% end %>

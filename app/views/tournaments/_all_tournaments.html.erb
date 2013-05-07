@@ -20,7 +20,9 @@
           <td class="centered"><%= tournament.sections.size %></td>
   				<td>
             <%= link_to raw("<i class='icon-file'></i> Details"), tournament_path(tournament), :class => 'btn btn-mini' %>
-            <%= link_to raw("<i class='icon-pencil'></i> Edit"), edit_tournament_path(tournament), :class => 'btn btn-mini' %>
+            <% if current_user.role? :admin %>
+              <%= link_to raw("<i class='icon-pencil'></i> Edit"), edit_tournament_path(tournament), :class => 'btn btn-mini' %>
+            <% end %>
           </td>
         </tr>
       <% end %>

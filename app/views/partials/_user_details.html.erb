@@ -15,16 +15,26 @@
 </p>
 
 <p>
-  <b>Waiver Signed:</b> <%= current_user.student.waiver_signed ? "Yes" : "No" %>
-</p>
-
-<p>
   <b>Current Dojo:</b> 
   <% if current_user.student.current_dojo.nil? %>
     N/A
   <% else %>
     <%= current_user.student.current_dojo.name %>
   <% end %>
+</p>
+
+<p> 
+  <b>User Account:</b> 
+    <%= current_user.role.capitalize %>  
+</p>
+
+<p>
+  <b> Email:</b>
+    <%= current_user.email %>
+</p>
+
+<p>
+  <b>Waiver Signed:</b> <%= current_user.student.waiver_signed ? "Yes" : "No" %>
 </p>
 
 <p>
