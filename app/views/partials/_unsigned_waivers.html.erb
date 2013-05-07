@@ -16,7 +16,7 @@
         <td> <%= link_to student.name, student_path(student) %> </td>
         <td> <%= student.date_of_birth.strftime("%m/%d/%y") %></td>
 				<td> <%= number_to_phone student.phone %> </td>
-        <% if student.user.email.nil? %>
+        <% if student.user.nil? %>
           <td> N/A </td>
         <% else %>
           <td> <%= student.user.email %> </td>
