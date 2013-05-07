@@ -7,6 +7,6 @@
 	</div>
 </div>
 
-<% if current_user.role? :admin %>
+<% if logged_in? and current_user.role? :admin %>
   <%= link_to raw("<i class='icon-plus icon-white'></i> Add a New Dojo"), new_dojo_path, :class => 'btn btn-primary', :id => 'Create Dojo' %>
 <% end %>

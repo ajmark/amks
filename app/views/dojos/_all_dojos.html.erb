@@ -18,7 +18,7 @@
           <td class="centered"><%= dojo.dojo_students.current.size %></td>
   				<td>
             <%= link_to raw("<i class='icon-file'></i> Details"), dojo_path(dojo), :class => 'btn btn-mini' %>
-            <% if current_user.role? :admin %>
+            <% if logged_in? and current_user.role? :admin %>
               <%= link_to raw("<i class='icon-pencil'></i> Edit"), edit_dojo_path(dojo), :class => 'btn btn-mini' %>
             <% end %>
           </td>
