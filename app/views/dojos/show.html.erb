@@ -4,8 +4,10 @@
     <%= render :partial => "dojo_details" %>
   </div>
   <div class="span6">
-  	<h4>Current Members</h4>
-  	<%= render :partial => "current_members" %>
+		<% if logged_in? %> 
+  		<h4>Current Members</h4>
+  		<%= render :partial => "current_members" %>
+		<% end %>
     <br>
     <% if logged_in? and current_user.role? :admin %>
       <%= render :partial => "quick_register_student_for_dojo" %>
