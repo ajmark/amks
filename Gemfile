@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
-gem 'sqlite3', '1.3.7'
 gem 'will_paginate', '3.0.4'
 gem 'validates_timeliness', '3.0.14'
 gem 'jquery-rails', '2.2.1'
@@ -9,7 +8,7 @@ gem "bcrypt-ruby", :require => "bcrypt"
 gem 'simple_form', '2.0.4'
 gem 'geocoder', '1.1.6'
 gem "nested_form", :git => 'git://github.com/ryanb/nested_form.git'
-
+gem 'pg'
 # Gems used only in testing
 group :test do
 	gem 'shoulda', '3.3.2'
@@ -38,6 +37,7 @@ group :development do
   gem 'hirb', '0.7.1'
   gem 'populator3', '0.2.7'
   gem 'faker', '1.1.2'
+	gem 'sqlite3', '1.3.7'
 end
 
 # Gems used only for assets and not required
