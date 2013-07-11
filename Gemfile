@@ -9,6 +9,8 @@ gem 'simple_form', '2.0.4'
 gem 'geocoder', '1.1.6'
 gem "nested_form", :git => 'git://github.com/ryanb/nested_form.git'
 gem 'pg'
+gem 'thin', '1.5.0'
+
 # Gems used only in testing
 group :test do
 	gem 'shoulda', '3.3.2'
@@ -29,7 +31,6 @@ end
 # Gems used only in development
 group :development do
   gem 'quiet_assets', '1.0.2'
-  gem 'thin', '1.5.0'
   gem 'better_errors', '0.7.0'
   gem 'binding_of_caller', '0.7.1'
   gem 'meta_request', '0.2.2'
