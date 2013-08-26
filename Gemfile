@@ -10,6 +10,7 @@ gem 'geocoder', '1.1.6'
 gem "nested_form", :git => 'git://github.com/ryanb/nested_form.git'
 gem 'pg'
 gem 'thin', '1.5.0'
+gem 'taps'
 
 # Gems used only in testing
 group :test do
